@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: Laboratorio1
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/laboratorio_db
+    username: laboratorio
+    password: Rostranruiz2106
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      properties:
+        hibernate:
+          physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
