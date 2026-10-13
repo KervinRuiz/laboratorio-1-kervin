@@ -7,14 +7,7 @@ import org.example.laboratorio_1_kervin.services.CategoriaService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -29,19 +22,20 @@ public class CategoriaController {
     private final CategoriaMapper categoriasMapper;
 
     public CategoriaController(CategoriaService categoriasService,
-                                CategoriaMapper categoriasMapper) {
+                               CategoriaMapper categoriasMapper) {
         this.categoriasService = categoriasService;
         this.categoriasMapper = categoriasMapper;
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('SUPER-ADMIN-ROLE', 'USER')")
     public List<CategoriaDTO> findAll() {
         log.info("Listando todas las categorias");
         return categoriasMapper.toDtoList(categoriasService.findAll());
     }
 
-
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('SUPER-ADMIN-ROLE', 'USER')")
     public ResponseEntity<CategoriaDTO> findById(@PathVariable Long id) {
         log.info("Buscando categoria con id {}", id);
         return ResponseEntity.of(
@@ -50,8 +44,8 @@ public class CategoriaController {
         );
     }
 
-
     @PostMapping("/")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     public ResponseEntity<CategoriaDTO> create(@RequestBody CategoriaDTO categoriasDTO) {
         log.info("Creando categoria");
 
@@ -68,8 +62,8 @@ public class CategoriaController {
                 .body(categoriasMapper.toDto(creada));
     }
 
-
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     public ResponseEntity<CategoriaDTO> update(
             @PathVariable Long id,
             @RequestBody CategoriaDTO categoriasDTO) {
@@ -84,8 +78,8 @@ public class CategoriaController {
         );
     }
 
-
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         log.info("Eliminando categoria con id {}", id);
 

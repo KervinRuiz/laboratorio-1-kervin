@@ -22,19 +22,19 @@ public class ProductoController {
     private final ProductoMapper productosMapper;
 
     public ProductoController(ProductoService productosService,
-                               ProductoMapper productosMapper) {
+                              ProductoMapper productosMapper) {
         this.productosService = productosService;
         this.productosMapper = productosMapper;
     }
 
-    @PreAuthorize("hasAuthority('producto:leer')")
+    @PreAuthorize("hasAnyRole('SUPER-ADMIN-ROLE', 'USER')")
     @GetMapping
     public List<ProductoDTO> findAll() {
         log.info("Listando todos los productos");
         return productosMapper.toDtoList(productosService.findAll());
     }
 
-    @PreAuthorize("hasAuthority('producto:leer')")
+    @PreAuthorize("hasAnyRole('SUPER-ADMIN-ROLE', 'USER')")
     @GetMapping("/{id}")
     public ResponseEntity<ProductoDTO> findById(@PathVariable Long id) {
         log.info("Buscando producto con id {}", id);
@@ -45,7 +45,7 @@ public class ProductoController {
         );
     }
 
-    @PreAuthorize("hasAuthority('producto:escribir')")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     @PostMapping("/")
     public ResponseEntity<ProductoDTO> create(@RequestBody ProductoDTO productosDTO) {
         log.info("Creando producto");
@@ -64,7 +64,7 @@ public class ProductoController {
                 .body(productosMapper.toDto(creado));
     }
 
-    @PreAuthorize("hasAuthority('producto:escribir')")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     @PutMapping("/{id}")
     public ResponseEntity<ProductoDTO> update(
             @PathVariable Long id,
@@ -81,7 +81,7 @@ public class ProductoController {
         );
     }
 
-    @PreAuthorize("hasAuthority('producto:eliminar')")
+    @PreAuthorize("hasRole('SUPER-ADMIN-ROLE')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         log.info("Eliminando producto con id {}", id);

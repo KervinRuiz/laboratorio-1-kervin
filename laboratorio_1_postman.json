@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "652ad03e-a4a9-4293-84c5-5584f2652ec2",
+    "name": "Laboratorio1",
+    "description": "`http://localhost:8080/api/v1/auth/login`\n\n`http://localhost:8080/api/v1/categorias`\n\n`http://localhost:8080/api/v1/categorias/1`\n\n`http://localhost:8080/api/v1/categorias/`\n\n`http://localhost:8080/api/v1/categorias/1`\n\n`http://localhost:8080/api/v1/categorias/1`\n\n`http://localhost:8080/api/v1/productos`  \n`http://localhost:8080/api/v1/productos/1`  \n`http://localhost:8080/api/v1/productos/`  \n`http://localhost:8080/api/v1/productos/1`\n\n`http://localhost:8080/api/v1/productos/1`",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23881545"
+  },
+  "item": [
+    {
+      "name": "AutenticarAdmin",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"Admin123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "AuntenticarUsuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"usuario\",\r\n  \"password\": \"Usuario123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListaCategorias",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJ1c3VhcmlvIiwiZXhwIjoxNzkxODY3ODE0LCJpYXQiOjE3OTE4NjQyMTQsInJvbCI6IlVTRVIifQ.qojj5P7mP-SWKg6s7SBemwC6q6LrBK9ln5cFnh_ZwPs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/categorias",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "categorias"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListarCategoriaID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/categorias/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "categorias",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CrearCategoria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Tecnología\",\r\n  \"descripcion\": \"Productos tecnológicos\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/categorias/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "categorias",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ActualizarCategoria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Tecnología y Electrónica\",\r\n  \"descripcion\": \"Productos tecnológicos y electrónicos\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/categorias/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "categorias",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EliminarCategoria",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/categorias/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "categorias",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListarProductos",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/productos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "productos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListarProductoID",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/productos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "productos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CrearProducto",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Laptop Lenovo\",\r\n  \"descripcion\": \"Computadora portátil de 16 GB de RAM\",\r\n  \"precio\": 450000,\r\n  \"cantidadStock\": 10,\r\n  \"categoriaId\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/productos/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "productos",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ActualizarProducto",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"nombre\": \"Laptop Lenovo ThinkPad\",\r\n  \"descripcion\": \"Computadora portátil de 16 GB de RAM y SSD de 512 GB\",\r\n  \"precio\": 475000,\r\n  \"cantidadStock\": 8,\r\n  \"categoriaId\": 3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/productos/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "productos",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "EliminarProducto",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsYWJvcmF0b3Jpby1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTc5MTg2Nzk0NiwiaWF0IjoxNzkxODY0MzQ2LCJyb2wiOiJTVVBFUi1BRE1JTi1ST0xFIn0.t1r71P7b0tlZahu4Zk6cbkt6KrPlCyWKik6blW7eiCY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/productos/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "productos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
